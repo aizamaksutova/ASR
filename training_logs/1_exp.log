@@ -1,0 +1,455 @@
+2023-10-20 10:54:13,447 - hw_asr.base.base_dataset - INFO - 1 (0.0%) records are longer then 20.0 seconds. Excluding them.
+2023-10-20 10:54:13,523 - hw_asr.base.base_dataset - INFO - 13243 (46.4%) records are longer then 200 characters. Excluding them.
+2023-10-20 10:54:13,525 - hw_asr.base.base_dataset - INFO - Filtered 13243(46.4%) records  from dataset
+2023-10-20 10:54:13,755 - hw_asr.base.base_dataset - INFO - 17 (0.0%) records are longer then 20.0 seconds. Excluding them.
+2023-10-20 10:54:14,032 - hw_asr.base.base_dataset - INFO - 48340 (46.5%) records are longer then 200 characters. Excluding them.
+2023-10-20 10:54:14,038 - hw_asr.base.base_dataset - INFO - Filtered 48340(46.5%) records  from dataset
+2023-10-20 10:54:14,230 - train - INFO - DeepSpeech2(
+  (extractor): Sequential(
+    (0): Conv2d(1, 32, kernel_size=(11, 41), stride=(2, 2), padding=(5, 20))
+    (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): Hardtanh(min_val=0, max_val=20)
+    (3): Conv2d(32, 32, kernel_size=(11, 21), stride=(1, 2), padding=(5, 10))
+    (4): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Hardtanh(min_val=0, max_val=20)
+  )
+  (gru): GRU(1024, 512, num_layers=4, batch_first=True, bidirectional=True)
+  (projection): Linear(in_features=1024, out_features=28, bias=True)
+)
+Trainable parameters: 19178812
+2023-10-20 10:58:36,420 - trainer - INFO -     epoch          : 1
+2023-10-20 10:58:36,420 - trainer - INFO -     loss           : 2.903493390083313
+2023-10-20 10:58:36,420 - trainer - INFO -     grad norm      : 2.046821799278259
+2023-10-20 10:58:36,421 - trainer - INFO -     WER (argmax)   : 0.18986861002289465
+2023-10-20 10:58:36,421 - trainer - INFO -     CER (argmax)   : 1.0
+2023-10-20 10:58:36,421 - trainer - INFO -     val_loss       : 2.9156532156598436
+2023-10-20 10:58:36,421 - trainer - INFO -     val_WER (argmax): 0.19184214252200316
+2023-10-20 10:58:36,421 - trainer - INFO -     val_CER (argmax): 1.0
+2023-10-20 10:58:36,812 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:02:54,671 - trainer - INFO -     epoch          : 2
+2023-10-20 11:02:54,672 - trainer - INFO -     loss           : 2.863848099708557
+2023-10-20 11:02:54,672 - trainer - INFO -     grad norm      : 0.5955363848805427
+2023-10-20 11:02:54,672 - trainer - INFO -     WER (argmax)   : 0.18979117847267382
+2023-10-20 11:02:54,672 - trainer - INFO -     CER (argmax)   : 1.0
+2023-10-20 11:02:54,672 - trainer - INFO -     val_loss       : 2.895209891455514
+2023-10-20 11:02:54,673 - trainer - INFO -     val_WER (argmax): 0.19195526957036524
+2023-10-20 11:02:54,673 - trainer - INFO -     val_CER (argmax): 1.0
+2023-10-20 11:02:55,093 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:07:11,095 - trainer - INFO -     epoch          : 3
+2023-10-20 11:07:11,096 - trainer - INFO -     loss           : 2.85916081905365
+2023-10-20 11:07:11,096 - trainer - INFO -     grad norm      : 0.8977055922150612
+2023-10-20 11:07:11,096 - trainer - INFO -     WER (argmax)   : 0.18997044220188095
+2023-10-20 11:07:11,096 - trainer - INFO -     CER (argmax)   : 1.0
+2023-10-20 11:07:11,096 - trainer - INFO -     val_loss       : 2.8781265295468845
+2023-10-20 11:07:11,097 - trainer - INFO -     val_WER (argmax): 0.1919656263355747
+2023-10-20 11:07:11,097 - trainer - INFO -     val_CER (argmax): 1.0
+2023-10-20 11:07:11,504 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:11:29,669 - trainer - INFO -     epoch          : 4
+2023-10-20 11:11:29,669 - trainer - INFO -     loss           : 2.8363462018966676
+2023-10-20 11:11:29,669 - trainer - INFO -     grad norm      : 0.8441701596975326
+2023-10-20 11:11:29,670 - trainer - INFO -     WER (argmax)   : 0.18951875467691603
+2023-10-20 11:11:29,670 - trainer - INFO -     CER (argmax)   : 1.0
+2023-10-20 11:11:29,670 - trainer - INFO -     val_loss       : 2.849488913357913
+2023-10-20 11:11:29,670 - trainer - INFO -     val_WER (argmax): 0.1917546593282913
+2023-10-20 11:11:29,670 - trainer - INFO -     val_CER (argmax): 1.0
+2023-10-20 11:11:30,076 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:15:46,741 - trainer - INFO -     epoch          : 5
+2023-10-20 11:15:46,741 - trainer - INFO -     loss           : 2.7790453147888186
+2023-10-20 11:15:46,741 - trainer - INFO -     grad norm      : 1.1532282477617264
+2023-10-20 11:15:46,742 - trainer - INFO -     WER (argmax)   : 0.19057262363413735
+2023-10-20 11:15:46,742 - trainer - INFO -     CER (argmax)   : 0.9999928192054577
+2023-10-20 11:15:46,742 - trainer - INFO -     val_loss       : 2.7765210696629117
+2023-10-20 11:15:46,742 - trainer - INFO -     val_WER (argmax): 0.1918972753349006
+2023-10-20 11:15:46,742 - trainer - INFO -     val_CER (argmax): 0.9999654290589904
+2023-10-20 11:15:47,162 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:20:03,103 - trainer - INFO -     epoch          : 6
+2023-10-20 11:20:03,104 - trainer - INFO -     loss           : 2.6666977643966674
+2023-10-20 11:20:03,104 - trainer - INFO -     grad norm      : 2.0229543900489806
+2023-10-20 11:20:03,104 - trainer - INFO -     WER (argmax)   : 0.18996952567811715
+2023-10-20 11:20:03,104 - trainer - INFO -     CER (argmax)   : 0.9875526504544733
+2023-10-20 11:20:03,104 - trainer - INFO -     val_loss       : 2.6520718532604177
+2023-10-20 11:20:03,105 - trainer - INFO -     val_WER (argmax): 0.19181408000008185
+2023-10-20 11:20:03,105 - trainer - INFO -     val_CER (argmax): 0.9832252363469813
+2023-10-20 11:20:03,526 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:24:19,779 - trainer - INFO -     epoch          : 7
+2023-10-20 11:24:19,779 - trainer - INFO -     loss           : 2.5213959884643553
+2023-10-20 11:24:19,779 - trainer - INFO -     grad norm      : 1.7308271300792695
+2023-10-20 11:24:19,780 - trainer - INFO -     WER (argmax)   : 0.19019753414880808
+2023-10-20 11:24:19,780 - trainer - INFO -     CER (argmax)   : 0.9163049720924679
+2023-10-20 11:24:19,780 - trainer - INFO -     val_loss       : 2.5473812491029175
+2023-10-20 11:24:19,780 - trainer - INFO -     val_WER (argmax): 0.19406267468841337
+2023-10-20 11:24:19,780 - trainer - INFO -     val_CER (argmax): 0.8728849129509725
+2023-10-20 11:24:20,195 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:28:37,217 - trainer - INFO -     epoch          : 8
+2023-10-20 11:28:37,218 - trainer - INFO -     loss           : 2.381600923538208
+2023-10-20 11:28:37,218 - trainer - INFO -     grad norm      : 2.6975996470451356
+2023-10-20 11:28:37,218 - trainer - INFO -     WER (argmax)   : 0.21499202534933948
+2023-10-20 11:28:37,218 - trainer - INFO -     CER (argmax)   : 0.8221910171917349
+2023-10-20 11:28:37,218 - trainer - INFO -     val_loss       : 2.4794231744912953
+2023-10-20 11:28:37,219 - trainer - INFO -     val_WER (argmax): 0.19283565801974006
+2023-10-20 11:28:37,219 - trainer - INFO -     val_CER (argmax): 0.8955392222385495
+2023-10-20 11:28:37,624 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:32:54,791 - trainer - INFO -     epoch          : 9
+2023-10-20 11:32:54,791 - trainer - INFO -     loss           : 2.26220760345459
+2023-10-20 11:32:54,792 - trainer - INFO -     grad norm      : 3.1903710436820982
+2023-10-20 11:32:54,792 - trainer - INFO -     WER (argmax)   : 0.27104525759270365
+2023-10-20 11:32:54,792 - trainer - INFO -     CER (argmax)   : 0.7685464098530688
+2023-10-20 11:32:54,792 - trainer - INFO -     val_loss       : 2.317827892827464
+2023-10-20 11:32:54,792 - trainer - INFO -     val_WER (argmax): 0.2882529446091373
+2023-10-20 11:32:54,792 - trainer - INFO -     val_CER (argmax): 0.760698829658138
+2023-10-20 11:32:55,225 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:37:10,049 - trainer - INFO -     epoch          : 10
+2023-10-20 11:37:10,049 - trainer - INFO -     loss           : 2.156574220657349
+2023-10-20 11:37:10,049 - trainer - INFO -     grad norm      : 3.2253105235099793
+2023-10-20 11:37:10,050 - trainer - INFO -     WER (argmax)   : 0.3254448793555282
+2023-10-20 11:37:10,050 - trainer - INFO -     CER (argmax)   : 0.7296820830026107
+2023-10-20 11:37:10,050 - trainer - INFO -     val_loss       : 2.1832350400777965
+2023-10-20 11:37:10,050 - trainer - INFO -     val_WER (argmax): 0.39425593882197607
+2023-10-20 11:37:10,050 - trainer - INFO -     val_CER (argmax): 0.6956261403824041
+2023-10-20 11:37:10,470 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:41:27,749 - trainer - INFO -     epoch          : 11
+2023-10-20 11:41:27,750 - trainer - INFO -     loss           : 2.068413133621216
+2023-10-20 11:41:27,750 - trainer - INFO -     grad norm      : 3.2727523827552796
+2023-10-20 11:41:27,750 - trainer - INFO -     WER (argmax)   : 0.3794042231825624
+2023-10-20 11:41:27,750 - trainer - INFO -     CER (argmax)   : 0.6948018242802264
+2023-10-20 11:41:27,750 - trainer - INFO -     val_loss       : 2.089431236078451
+2023-10-20 11:41:27,751 - trainer - INFO -     val_WER (argmax): 0.36429920546444866
+2023-10-20 11:41:27,751 - trainer - INFO -     val_CER (argmax): 0.7053859338035704
+2023-10-20 11:41:28,214 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:45:46,777 - trainer - INFO -     epoch          : 12
+2023-10-20 11:45:46,777 - trainer - INFO -     loss           : 1.9948656845092774
+2023-10-20 11:45:46,778 - trainer - INFO -     grad norm      : 3.210534598827362
+2023-10-20 11:45:46,778 - trainer - INFO -     WER (argmax)   : 0.427558577303605
+2023-10-20 11:45:46,778 - trainer - INFO -     CER (argmax)   : 0.6626078421578987
+2023-10-20 11:45:46,778 - trainer - INFO -     val_loss       : 2.029802116718921
+2023-10-20 11:45:46,778 - trainer - INFO -     val_WER (argmax): 0.41254698567912473
+2023-10-20 11:45:46,778 - trainer - INFO -     val_CER (argmax): 0.677650796293501
+2023-10-20 11:45:47,198 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:50:03,857 - trainer - INFO -     epoch          : 13
+2023-10-20 11:50:03,857 - trainer - INFO -     loss           : 1.9175087070465089
+2023-10-20 11:50:03,858 - trainer - INFO -     grad norm      : 2.9041427683830263
+2023-10-20 11:50:03,858 - trainer - INFO -     WER (argmax)   : 0.47476419780034285
+2023-10-20 11:50:03,858 - trainer - INFO -     CER (argmax)   : 0.6298366721829246
+2023-10-20 11:50:03,858 - trainer - INFO -     val_loss       : 1.980701758311345
+2023-10-20 11:50:03,858 - trainer - INFO -     val_WER (argmax): 0.3676809619924187
+2023-10-20 11:50:03,858 - trainer - INFO -     val_CER (argmax): 0.6931481615507481
+2023-10-20 11:50:04,276 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:54:21,637 - trainer - INFO -     epoch          : 14
+2023-10-20 11:54:21,637 - trainer - INFO -     loss           : 1.8673611164093018
+2023-10-20 11:54:21,637 - trainer - INFO -     grad norm      : 3.2017646074295043
+2023-10-20 11:54:21,638 - trainer - INFO -     WER (argmax)   : 0.5221176017932244
+2023-10-20 11:54:21,638 - trainer - INFO -     CER (argmax)   : 0.6021609906888516
+2023-10-20 11:54:21,638 - trainer - INFO -     val_loss       : 1.9291992161300155
+2023-10-20 11:54:21,638 - trainer - INFO -     val_WER (argmax): 0.6460102220015449
+2023-10-20 11:54:21,638 - trainer - INFO -     val_CER (argmax): 0.5689454411503525
+2023-10-20 11:54:22,042 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 11:58:39,035 - trainer - INFO -     epoch          : 15
+2023-10-20 11:58:39,036 - trainer - INFO -     loss           : 1.8139409065246581
+2023-10-20 11:58:39,036 - trainer - INFO -     grad norm      : 3.123956973552704
+2023-10-20 11:58:39,036 - trainer - INFO -     WER (argmax)   : 0.5473138251473069
+2023-10-20 11:58:39,036 - trainer - INFO -     CER (argmax)   : 0.5826796221792355
+2023-10-20 11:58:39,037 - trainer - INFO -     val_loss       : 1.8837427582059587
+2023-10-20 11:58:39,037 - trainer - INFO -     val_WER (argmax): 0.44341807835509295
+2023-10-20 11:58:39,037 - trainer - INFO -     val_CER (argmax): 0.6388445523339452
+2023-10-20 11:58:39,452 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 12:02:55,860 - trainer - INFO -     epoch          : 16
+2023-10-20 12:02:55,861 - trainer - INFO -     loss           : 1.7533840870857238
+2023-10-20 12:02:55,861 - trainer - INFO -     grad norm      : 2.7627868103981017
+2023-10-20 12:02:55,861 - trainer - INFO -     WER (argmax)   : 0.5863079610682285
+2023-10-20 12:02:55,861 - trainer - INFO -     CER (argmax)   : 0.5567774894977056
+2023-10-20 12:02:55,861 - trainer - INFO -     val_loss       : 1.798181257405124
+2023-10-20 12:02:55,862 - trainer - INFO -     val_WER (argmax): 0.6256208646687649
+2023-10-20 12:02:55,862 - trainer - INFO -     val_CER (argmax): 0.5527683286859421
+2023-10-20 12:02:56,269 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 12:07:10,537 - trainer - INFO -     epoch          : 17
+2023-10-20 12:07:10,537 - trainer - INFO -     loss           : 1.7314319801330567
+2023-10-20 12:07:10,538 - trainer - INFO -     grad norm      : 3.7260331201553343
+2023-10-20 12:07:10,538 - trainer - INFO -     WER (argmax)   : 0.6135830359693716
+2023-10-20 12:07:10,538 - trainer - INFO -     CER (argmax)   : 0.5445080389912712
+2023-10-20 12:07:10,538 - trainer - INFO -     val_loss       : 1.8199477549437637
+2023-10-20 12:07:10,538 - trainer - INFO -     val_WER (argmax): 0.7141542184163405
+2023-10-20 12:07:10,538 - trainer - INFO -     val_CER (argmax): 0.5299696873325505
+2023-10-20 12:11:27,670 - trainer - INFO -     epoch          : 18
+2023-10-20 12:11:27,670 - trainer - INFO -     loss           : 1.6671852207183837
+2023-10-20 12:11:27,671 - trainer - INFO -     grad norm      : 2.6432955479621887
+2023-10-20 12:11:27,671 - trainer - INFO -     WER (argmax)   : 0.6361048783898401
+2023-10-20 12:11:27,671 - trainer - INFO -     CER (argmax)   : 0.522146677521405
+2023-10-20 12:11:27,671 - trainer - INFO -     val_loss       : 1.73108435856117
+2023-10-20 12:11:27,671 - trainer - INFO -     val_WER (argmax): 0.6427238726518437
+2023-10-20 12:11:27,671 - trainer - INFO -     val_CER (argmax): 0.5283872597180639
+2023-10-20 12:11:28,087 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 12:15:47,101 - trainer - INFO -     epoch          : 19
+2023-10-20 12:15:47,101 - trainer - INFO -     loss           : 1.6400515699386597
+2023-10-20 12:15:47,102 - trainer - INFO -     grad norm      : 2.882586076259613
+2023-10-20 12:15:47,102 - trainer - INFO -     WER (argmax)   : 0.6559481566003548
+2023-10-20 12:15:47,102 - trainer - INFO -     CER (argmax)   : 0.5107599650044954
+2023-10-20 12:15:47,102 - trainer - INFO -     val_loss       : 1.750047307748061
+2023-10-20 12:15:47,102 - trainer - INFO -     val_WER (argmax): 0.8020150434826251
+2023-10-20 12:15:47,102 - trainer - INFO -     val_CER (argmax): 0.48817510593640384
+2023-10-20 12:20:03,663 - trainer - INFO -     epoch          : 20
+2023-10-20 12:20:03,664 - trainer - INFO -     loss           : 1.6146134328842163
+2023-10-20 12:20:03,664 - trainer - INFO -     grad norm      : 2.964875204563141
+2023-10-20 12:20:03,664 - trainer - INFO -     WER (argmax)   : 0.6737117056883468
+2023-10-20 12:20:03,664 - trainer - INFO -     CER (argmax)   : 0.49891091353002115
+2023-10-20 12:20:03,664 - trainer - INFO -     val_loss       : 1.675774363371042
+2023-10-20 12:20:03,664 - trainer - INFO -     val_WER (argmax): 0.7094882838376044
+2023-10-20 12:20:03,664 - trainer - INFO -     val_CER (argmax): 0.49826191200094655
+2023-10-20 12:20:04,072 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 12:24:23,193 - trainer - INFO -     epoch          : 21
+2023-10-20 12:24:23,194 - trainer - INFO -     loss           : 1.5812458896636963
+2023-10-20 12:24:23,194 - trainer - INFO -     grad norm      : 2.9582775378227235
+2023-10-20 12:24:23,194 - trainer - INFO -     WER (argmax)   : 0.6917573093699338
+2023-10-20 12:24:23,194 - trainer - INFO -     CER (argmax)   : 0.4883636972505101
+2023-10-20 12:24:23,194 - trainer - INFO -     val_loss       : 1.6527547797003945
+2023-10-20 12:24:23,194 - trainer - INFO -     val_WER (argmax): 0.6011673980658805
+2023-10-20 12:24:23,194 - trainer - INFO -     val_CER (argmax): 0.5333998910092965
+2023-10-20 12:24:23,606 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 12:28:42,075 - trainer - INFO -     epoch          : 22
+2023-10-20 12:28:42,076 - trainer - INFO -     loss           : 1.5604031872749329
+2023-10-20 12:28:42,076 - trainer - INFO -     grad norm      : 3.231800210475922
+2023-10-20 12:28:42,076 - trainer - INFO -     WER (argmax)   : 0.7019868732760517
+2023-10-20 12:28:42,076 - trainer - INFO -     CER (argmax)   : 0.48192186446280516
+2023-10-20 12:28:42,076 - trainer - INFO -     val_loss       : 1.6431269750490294
+2023-10-20 12:28:42,076 - trainer - INFO -     val_WER (argmax): 0.6316587333846909
+2023-10-20 12:28:42,076 - trainer - INFO -     val_CER (argmax): 0.5185245513594383
+2023-10-20 12:28:42,489 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 12:32:58,305 - trainer - INFO -     epoch          : 23
+2023-10-20 12:32:58,305 - trainer - INFO -     loss           : 1.5232472538948059
+2023-10-20 12:32:58,305 - trainer - INFO -     grad norm      : 2.6664418363571167
+2023-10-20 12:32:58,305 - trainer - INFO -     WER (argmax)   : 0.7173314746190894
+2023-10-20 12:32:58,305 - trainer - INFO -     CER (argmax)   : 0.4684390139833274
+2023-10-20 12:32:58,305 - trainer - INFO -     val_loss       : 1.5722373684684
+2023-10-20 12:32:58,306 - trainer - INFO -     val_WER (argmax): 0.7303153224185891
+2023-10-20 12:32:58,306 - trainer - INFO -     val_CER (argmax): 0.4741739071044992
+2023-10-20 12:32:58,715 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 12:37:15,193 - trainer - INFO -     epoch          : 24
+2023-10-20 12:37:15,193 - trainer - INFO -     loss           : 1.5071382713317871
+2023-10-20 12:37:15,194 - trainer - INFO -     grad norm      : 2.807768144607544
+2023-10-20 12:37:15,194 - trainer - INFO -     WER (argmax)   : 0.7303697891860679
+2023-10-20 12:37:15,194 - trainer - INFO -     CER (argmax)   : 0.46102896466711113
+2023-10-20 12:37:15,194 - trainer - INFO -     val_loss       : 1.5537556920732771
+2023-10-20 12:37:15,194 - trainer - INFO -     val_WER (argmax): 0.6961607403118342
+2023-10-20 12:37:15,194 - trainer - INFO -     val_CER (argmax): 0.48168602384186543
+2023-10-20 12:37:15,609 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 12:41:34,063 - trainer - INFO -     epoch          : 25
+2023-10-20 12:41:34,063 - trainer - INFO -     loss           : 1.4768557786941527
+2023-10-20 12:41:34,064 - trainer - INFO -     grad norm      : 2.814693853855133
+2023-10-20 12:41:34,064 - trainer - INFO -     WER (argmax)   : 0.7408141529532992
+2023-10-20 12:41:34,064 - trainer - INFO -     CER (argmax)   : 0.45319322620926206
+2023-10-20 12:41:34,064 - trainer - INFO -     val_loss       : 1.5506846813055186
+2023-10-20 12:41:34,064 - trainer - INFO -     val_WER (argmax): 0.6983312603985635
+2023-10-20 12:41:34,064 - trainer - INFO -     val_CER (argmax): 0.48275812314161054
+2023-10-20 12:41:34,494 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 12:45:52,404 - trainer - INFO -     epoch          : 26
+2023-10-20 12:45:52,404 - trainer - INFO -     loss           : 1.4560922384262085
+2023-10-20 12:45:52,404 - trainer - INFO -     grad norm      : 2.7758997464179993
+2023-10-20 12:45:52,405 - trainer - INFO -     WER (argmax)   : 0.7505209277274545
+2023-10-20 12:45:52,405 - trainer - INFO -     CER (argmax)   : 0.44571483370027537
+2023-10-20 12:45:52,405 - trainer - INFO -     val_loss       : 1.5480773488243857
+2023-10-20 12:45:52,405 - trainer - INFO -     val_WER (argmax): 0.679428473261639
+2023-10-20 12:45:52,405 - trainer - INFO -     val_CER (argmax): 0.48695624562441786
+2023-10-20 12:45:52,817 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 12:50:10,228 - trainer - INFO -     epoch          : 27
+2023-10-20 12:50:10,228 - trainer - INFO -     loss           : 1.438937895298004
+2023-10-20 12:50:10,228 - trainer - INFO -     grad norm      : 2.7364799618721007
+2023-10-20 12:50:10,228 - trainer - INFO -     WER (argmax)   : 0.757107960290994
+2023-10-20 12:50:10,228 - trainer - INFO -     CER (argmax)   : 0.4401481717038149
+2023-10-20 12:50:10,229 - trainer - INFO -     val_loss       : 1.5062206066571748
+2023-10-20 12:50:10,229 - trainer - INFO -     val_WER (argmax): 0.8108506716284888
+2023-10-20 12:50:10,229 - trainer - INFO -     val_CER (argmax): 0.4413223813037982
+2023-10-20 12:50:10,641 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 12:54:28,811 - trainer - INFO -     epoch          : 28
+2023-10-20 12:54:28,812 - trainer - INFO -     loss           : 1.4315174174308778
+2023-10-20 12:54:28,812 - trainer - INFO -     grad norm      : 2.865986144542694
+2023-10-20 12:54:28,812 - trainer - INFO -     WER (argmax)   : 0.7624397028648718
+2023-10-20 12:54:28,812 - trainer - INFO -     CER (argmax)   : 0.43728181176120606
+2023-10-20 12:54:28,812 - trainer - INFO -     val_loss       : 1.4793314278780758
+2023-10-20 12:54:28,812 - trainer - INFO -     val_WER (argmax): 0.7552551972674858
+2023-10-20 12:54:28,812 - trainer - INFO -     val_CER (argmax): 0.45011582055438815
+2023-10-20 12:54:29,227 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 12:58:46,927 - trainer - INFO -     epoch          : 29
+2023-10-20 12:58:46,928 - trainer - INFO -     loss           : 1.3935600471496583
+2023-10-20 12:58:46,928 - trainer - INFO -     grad norm      : 2.5198944568634034
+2023-10-20 12:58:46,928 - trainer - INFO -     WER (argmax)   : 0.7695121664329128
+2023-10-20 12:58:46,928 - trainer - INFO -     CER (argmax)   : 0.4265708577764854
+2023-10-20 12:58:46,928 - trainer - INFO -     val_loss       : 1.4587721601947323
+2023-10-20 12:58:46,928 - trainer - INFO -     val_WER (argmax): 0.7364452815463921
+2023-10-20 12:58:46,928 - trainer - INFO -     val_CER (argmax): 0.4458837534189142
+2023-10-20 12:58:47,341 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 13:03:07,732 - trainer - INFO -     epoch          : 30
+2023-10-20 13:03:07,732 - trainer - INFO -     loss           : 1.3952071905136108
+2023-10-20 13:03:07,732 - trainer - INFO -     grad norm      : 2.6322551798820495
+2023-10-20 13:03:07,733 - trainer - INFO -     WER (argmax)   : 0.7762352135210062
+2023-10-20 13:03:07,733 - trainer - INFO -     CER (argmax)   : 0.42614919056253553
+2023-10-20 13:03:07,733 - trainer - INFO -     val_loss       : 1.4401878603212126
+2023-10-20 13:03:07,733 - trainer - INFO -     val_WER (argmax): 0.7312448720207126
+2023-10-20 13:03:07,733 - trainer - INFO -     val_CER (argmax): 0.44489861597284974
+2023-10-20 13:03:08,141 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 13:07:25,005 - trainer - INFO -     epoch          : 31
+2023-10-20 13:07:25,006 - trainer - INFO -     loss           : 1.3837420082092284
+2023-10-20 13:07:25,006 - trainer - INFO -     grad norm      : 3.0047323751449584
+2023-10-20 13:07:25,006 - trainer - INFO -     WER (argmax)   : 0.7801775039046425
+2023-10-20 13:07:25,007 - trainer - INFO -     CER (argmax)   : 0.42194635677418724
+2023-10-20 13:07:25,007 - trainer - INFO -     val_loss       : 1.430499439711099
+2023-10-20 13:07:25,007 - trainer - INFO -     val_WER (argmax): 0.73976048706916
+2023-10-20 13:07:25,007 - trainer - INFO -     val_CER (argmax): 0.4416701666751325
+2023-10-20 13:07:25,436 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 13:11:44,360 - trainer - INFO -     epoch          : 32
+2023-10-20 13:11:44,360 - trainer - INFO -     loss           : 1.3728248167037964
+2023-10-20 13:11:44,361 - trainer - INFO -     grad norm      : 2.718738498687744
+2023-10-20 13:11:44,361 - trainer - INFO -     WER (argmax)   : 0.7837614612542457
+2023-10-20 13:11:44,361 - trainer - INFO -     CER (argmax)   : 0.41937538886529796
+2023-10-20 13:11:44,361 - trainer - INFO -     val_loss       : 1.4360359108055032
+2023-10-20 13:11:44,361 - trainer - INFO -     val_WER (argmax): 0.7526661248866358
+2023-10-20 13:11:44,361 - trainer - INFO -     val_CER (argmax): 0.43716919859306386
+2023-10-20 13:16:03,260 - trainer - INFO -     epoch          : 33
+2023-10-20 13:16:03,261 - trainer - INFO -     loss           : 1.3480438327789306
+2023-10-20 13:16:03,261 - trainer - INFO -     grad norm      : 2.310989408493042
+2023-10-20 13:16:03,261 - trainer - INFO -     WER (argmax)   : 0.7901499114991307
+2023-10-20 13:16:03,261 - trainer - INFO -     CER (argmax)   : 0.4103281590864509
+2023-10-20 13:16:03,261 - trainer - INFO -     val_loss       : 1.3947343118898161
+2023-10-20 13:16:03,261 - trainer - INFO -     val_WER (argmax): 0.7940367167603825
+2023-10-20 13:16:03,261 - trainer - INFO -     val_CER (argmax): 0.41852879058440423
+2023-10-20 13:16:03,669 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 13:20:20,813 - trainer - INFO -     epoch          : 34
+2023-10-20 13:20:20,814 - trainer - INFO -     loss           : 1.3430007195472717
+2023-10-20 13:20:20,814 - trainer - INFO -     grad norm      : 2.504501883983612
+2023-10-20 13:20:20,814 - trainer - INFO -     WER (argmax)   : 0.791899089064742
+2023-10-20 13:20:20,814 - trainer - INFO -     CER (argmax)   : 0.4080852322013544
+2023-10-20 13:20:20,814 - trainer - INFO -     val_loss       : 1.3928862299237932
+2023-10-20 13:20:20,814 - trainer - INFO -     val_WER (argmax): 0.8097314953872268
+2023-10-20 13:20:20,814 - trainer - INFO -     val_CER (argmax): 0.41508476096682967
+2023-10-20 13:20:21,243 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 13:24:39,652 - trainer - INFO -     epoch          : 35
+2023-10-20 13:24:39,653 - trainer - INFO -     loss           : 1.3270788192749023
+2023-10-20 13:24:39,653 - trainer - INFO -     grad norm      : 2.433096444606781
+2023-10-20 13:24:39,653 - trainer - INFO -     WER (argmax)   : 0.7953698513343663
+2023-10-20 13:24:39,653 - trainer - INFO -     CER (argmax)   : 0.40602468406839753
+2023-10-20 13:24:39,653 - trainer - INFO -     val_loss       : 1.3797315450815053
+2023-10-20 13:24:39,653 - trainer - INFO -     val_WER (argmax): 0.8027838800490168
+2023-10-20 13:24:39,653 - trainer - INFO -     val_CER (argmax): 0.4131542372920866
+2023-10-20 13:24:40,070 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 13:28:56,991 - trainer - INFO -     epoch          : 36
+2023-10-20 13:28:56,991 - trainer - INFO -     loss           : 1.3259257578849792
+2023-10-20 13:28:56,991 - trainer - INFO -     grad norm      : 2.4574235701560974
+2023-10-20 13:28:56,991 - trainer - INFO -     WER (argmax)   : 0.798781293931752
+2023-10-20 13:28:56,992 - trainer - INFO -     CER (argmax)   : 0.40397089546048354
+2023-10-20 13:28:56,992 - trainer - INFO -     val_loss       : 1.3736960468711434
+2023-10-20 13:28:56,992 - trainer - INFO -     val_WER (argmax): 0.8028711416119146
+2023-10-20 13:28:56,992 - trainer - INFO -     val_CER (argmax): 0.4125404959878148
+2023-10-20 13:28:57,413 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 13:33:14,826 - trainer - INFO -     epoch          : 37
+2023-10-20 13:33:14,827 - trainer - INFO -     loss           : 1.3036943173408508
+2023-10-20 13:33:14,827 - trainer - INFO -     grad norm      : 2.02115909576416
+2023-10-20 13:33:14,827 - trainer - INFO -     WER (argmax)   : 0.8018667064486749
+2023-10-20 13:33:14,827 - trainer - INFO -     CER (argmax)   : 0.39890388375171104
+2023-10-20 13:33:14,827 - trainer - INFO -     val_loss       : 1.3651271848888187
+2023-10-20 13:33:14,827 - trainer - INFO -     val_WER (argmax): 0.8009058765280532
+2023-10-20 13:33:14,827 - trainer - INFO -     val_CER (argmax): 0.4109224282394523
+2023-10-20 13:33:15,254 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 13:37:32,505 - trainer - INFO -     epoch          : 38
+2023-10-20 13:37:32,506 - trainer - INFO -     loss           : 1.3109780621528626
+2023-10-20 13:37:32,506 - trainer - INFO -     grad norm      : 2.1925360417366027
+2023-10-20 13:37:32,506 - trainer - INFO -     WER (argmax)   : 0.8032147919086009
+2023-10-20 13:37:32,506 - trainer - INFO -     CER (argmax)   : 0.39795877823985754
+2023-10-20 13:37:32,506 - trainer - INFO -     val_loss       : 1.3696359068482786
+2023-10-20 13:37:32,506 - trainer - INFO -     val_WER (argmax): 0.7843080325560572
+2023-10-20 13:37:32,507 - trainer - INFO -     val_CER (argmax): 0.41736360090240715
+2023-10-20 13:41:52,109 - trainer - INFO -     epoch          : 39
+2023-10-20 13:41:52,109 - trainer - INFO -     loss           : 1.289904100894928
+2023-10-20 13:41:52,110 - trainer - INFO -     grad norm      : 2.2004019117355345
+2023-10-20 13:41:52,110 - trainer - INFO -     WER (argmax)   : 0.8051568560513246
+2023-10-20 13:41:52,110 - trainer - INFO -     CER (argmax)   : 0.3940123575584451
+2023-10-20 13:41:52,110 - trainer - INFO -     val_loss       : 1.3543469918953193
+2023-10-20 13:41:52,110 - trainer - INFO -     val_WER (argmax): 0.8182247526310837
+2023-10-20 13:41:52,110 - trainer - INFO -     val_CER (argmax): 0.40437246667573035
+2023-10-20 13:41:52,537 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 13:46:11,803 - trainer - INFO -     epoch          : 40
+2023-10-20 13:46:11,803 - trainer - INFO -     loss           : 1.289736692905426
+2023-10-20 13:46:11,803 - trainer - INFO -     grad norm      : 1.9800861620903014
+2023-10-20 13:46:11,804 - trainer - INFO -     WER (argmax)   : 0.8069102252682828
+2023-10-20 13:46:11,804 - trainer - INFO -     CER (argmax)   : 0.3920228073244056
+2023-10-20 13:46:11,804 - trainer - INFO -     val_loss       : 1.3398396837842332
+2023-10-20 13:46:11,804 - trainer - INFO -     val_WER (argmax): 0.7973694249701325
+2023-10-20 13:46:11,804 - trainer - INFO -     val_CER (argmax): 0.4057012051314933
+2023-10-20 13:46:12,261 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 13:50:30,280 - trainer - INFO -     epoch          : 41
+2023-10-20 13:50:30,281 - trainer - INFO -     loss           : 1.2801704812049866
+2023-10-20 13:50:30,281 - trainer - INFO -     grad norm      : 1.8768483066558839
+2023-10-20 13:50:30,281 - trainer - INFO -     WER (argmax)   : 0.8092197878496219
+2023-10-20 13:50:30,281 - trainer - INFO -     CER (argmax)   : 0.39024080015729296
+2023-10-20 13:50:30,281 - trainer - INFO -     val_loss       : 1.3349676643099104
+2023-10-20 13:50:30,281 - trainer - INFO -     val_WER (argmax): 0.7880031016468692
+2023-10-20 13:50:30,282 - trainer - INFO -     val_CER (argmax): 0.4072363024946853
+2023-10-20 13:50:30,705 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 13:54:49,488 - trainer - INFO -     epoch          : 42
+2023-10-20 13:54:49,489 - trainer - INFO -     loss           : 1.2802837634086608
+2023-10-20 13:54:49,489 - trainer - INFO -     grad norm      : 1.8699905633926392
+2023-10-20 13:54:49,489 - trainer - INFO -     WER (argmax)   : 0.8077087831172114
+2023-10-20 13:54:49,489 - trainer - INFO -     CER (argmax)   : 0.39061792649048643
+2023-10-20 13:54:49,489 - trainer - INFO -     val_loss       : 1.333647874685434
+2023-10-20 13:54:49,489 - trainer - INFO -     val_WER (argmax): 0.7775896646578309
+2023-10-20 13:54:49,489 - trainer - INFO -     val_CER (argmax): 0.4093733057203835
+2023-10-20 13:54:49,910 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 13:59:08,195 - trainer - INFO -     epoch          : 43
+2023-10-20 13:59:08,195 - trainer - INFO -     loss           : 1.2720769810676575
+2023-10-20 13:59:08,195 - trainer - INFO -     grad norm      : 1.8274281072616576
+2023-10-20 13:59:08,195 - trainer - INFO -     WER (argmax)   : 0.8102223455383333
+2023-10-20 13:59:08,196 - trainer - INFO -     CER (argmax)   : 0.3888081018788005
+2023-10-20 13:59:08,196 - trainer - INFO -     val_loss       : 1.3292145218167986
+2023-10-20 13:59:08,196 - trainer - INFO -     val_WER (argmax): 0.7920437012624494
+2023-10-20 13:59:08,196 - trainer - INFO -     val_CER (argmax): 0.40420246034118346
+2023-10-20 13:59:08,633 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 14:03:26,858 - trainer - INFO -     epoch          : 44
+2023-10-20 14:03:26,859 - trainer - INFO -     loss           : 1.268740589618683
+2023-10-20 14:03:26,859 - trainer - INFO -     grad norm      : 1.931091182231903
+2023-10-20 14:03:26,859 - trainer - INFO -     WER (argmax)   : 0.8117321889570873
+2023-10-20 14:03:26,859 - trainer - INFO -     CER (argmax)   : 0.38771634058602067
+2023-10-20 14:03:26,859 - trainer - INFO -     val_loss       : 1.3221066849572318
+2023-10-20 14:03:26,859 - trainer - INFO -     val_WER (argmax): 0.836879141878662
+2023-10-20 14:03:26,859 - trainer - INFO -     val_CER (argmax): 0.3919561725980794
+2023-10-20 14:03:27,281 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 14:07:46,223 - trainer - INFO -     epoch          : 45
+2023-10-20 14:07:46,223 - trainer - INFO -     loss           : 1.2626415991783142
+2023-10-20 14:07:46,224 - trainer - INFO -     grad norm      : 1.6346862840652465
+2023-10-20 14:07:46,224 - trainer - INFO -     WER (argmax)   : 0.811530759583539
+2023-10-20 14:07:46,224 - trainer - INFO -     CER (argmax)   : 0.3847857993573176
+2023-10-20 14:07:46,224 - trainer - INFO -     val_loss       : 1.3194060220823183
+2023-10-20 14:07:46,224 - trainer - INFO -     val_WER (argmax): 0.8116410919702811
+2023-10-20 14:07:46,224 - trainer - INFO -     val_CER (argmax): 0.39709158576322606
+2023-10-20 14:07:46,648 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 14:12:04,747 - trainer - INFO -     epoch          : 46
+2023-10-20 14:12:04,748 - trainer - INFO -     loss           : 1.2616090965270996
+2023-10-20 14:12:04,748 - trainer - INFO -     grad norm      : 1.693825490474701
+2023-10-20 14:12:04,748 - trainer - INFO -     WER (argmax)   : 0.814097768801161
+2023-10-20 14:12:04,748 - trainer - INFO -     CER (argmax)   : 0.3848655465970557
+2023-10-20 14:12:04,748 - trainer - INFO -     val_loss       : 1.3175465890339442
+2023-10-20 14:12:04,748 - trainer - INFO -     val_WER (argmax): 0.7904700868132929
+2023-10-20 14:12:04,749 - trainer - INFO -     val_CER (argmax): 0.4021344821231458
+2023-10-20 14:12:05,149 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 14:16:22,172 - trainer - INFO -     epoch          : 47
+2023-10-20 14:16:22,173 - trainer - INFO -     loss           : 1.2636709904670715
+2023-10-20 14:16:22,173 - trainer - INFO -     grad norm      : 1.5677187943458557
+2023-10-20 14:16:22,173 - trainer - INFO -     WER (argmax)   : 0.8126047886191462
+2023-10-20 14:16:22,173 - trainer - INFO -     CER (argmax)   : 0.3850791183759824
+2023-10-20 14:16:22,173 - trainer - INFO -     val_loss       : 1.3123452349023506
+2023-10-20 14:16:22,173 - trainer - INFO -     val_WER (argmax): 0.803095046181239
+2023-10-20 14:16:22,174 - trainer - INFO -     val_CER (argmax): 0.39806344077651346
+2023-10-20 14:16:22,593 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 14:20:39,699 - trainer - INFO -     epoch          : 48
+2023-10-20 14:20:39,700 - trainer - INFO -     loss           : 1.2652144289016725
+2023-10-20 14:20:39,700 - trainer - INFO -     grad norm      : 1.58954660654068
+2023-10-20 14:20:39,700 - trainer - INFO -     WER (argmax)   : 0.8111566219466627
+2023-10-20 14:20:39,700 - trainer - INFO -     CER (argmax)   : 0.38605498005462235
+2023-10-20 14:20:39,700 - trainer - INFO -     val_loss       : 1.311984317643302
+2023-10-20 14:20:39,700 - trainer - INFO -     val_WER (argmax): 0.8023512924349306
+2023-10-20 14:20:39,700 - trainer - INFO -     val_CER (argmax): 0.39781955630762733
+2023-10-20 14:20:40,125 - trainer - INFO - Saving current best: model_best.pth ...
+2023-10-20 14:24:56,684 - trainer - INFO -     epoch          : 49
+2023-10-20 14:24:56,685 - trainer - INFO -     loss           : 1.2570037508010865
+2023-10-20 14:24:56,685 - trainer - INFO -     grad norm      : 1.5474540162086488
+2023-10-20 14:24:56,685 - trainer - INFO -     WER (argmax)   : 0.813284031044994
+2023-10-20 14:24:56,685 - trainer - INFO -     CER (argmax)   : 0.38363202031776233
+2023-10-20 14:24:56,685 - trainer - INFO -     val_loss       : 1.313634115261036
+2023-10-20 14:24:56,685 - trainer - INFO -     val_WER (argmax): 0.7980790863575069
+2023-10-20 14:24:56,685 - trainer - INFO -     val_CER (argmax): 0.3992461748353654
