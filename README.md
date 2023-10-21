@@ -17,4 +17,8 @@ Model architecture in the project is heavily dependant on this architecture, tho
 # Experiments
  ### First try
  First I implemented a model with 2 convolution layers and 4 GRU layers. Optimizer - SGD, lr_scheduler - OneCycleLR, no augmentations for train-clean part. See the config for the clean-part training [here](https://github.com/aizamaksutova/DL_Audio/blob/main/configs/1exp_train_clean.json). 
+ The metrics on this step while training only on clean part were CER: 0.39 and I would like to not state the WER, because I was not computing it in the right way.
+
+ ### Second try
+ I decided to carry on with training on the clean part and get better cer and wer metrics on them, so I am adding more GRU layers and augmentations. 
  
