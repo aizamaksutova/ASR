@@ -8,6 +8,9 @@ Model architecture in the project is heavily dependant on this architecture, tho
 
 ![Model architecture from paper Deep Speech 2](https://github.com/aizamaksutova/DL_Audio/blob/main/images/model-arch-ds2.png)
 
+#### Specifications
+For padding, kernel sizes and strides in the convolutional layers I looked up the official documentation of [DeepSpeech2](https://nvidia.github.io/OpenSeq2Seq/html/speech-recognition/deepspeech2.html) in order to build a strong model from the very first steps.  
+
 # Training pipeline
 
 ## First method
@@ -100,7 +103,14 @@ On test-other:
 
 
 
- #### 
+ ### Beam search with LM
+
+#### Implementation
+For beam search with LM i used the 3-gram.arpa LM from LibriSpeech models, implemented a ctc decoder which is able to decode texts. Additionally, I added some hot words[hard words which not a lot of people could guess how to write] which are passed to the decoder with a significant weight for the model to draw attention to these words specifically. 
+
+#### Hyperparameters 
+In the prior experiment[№4] I implemented Beam Search with LM with hyperparameters alpha = 0.5 and beta = 0.1, maybe this needs some changes so I will experiment with these in the fifth, final experiment.
+
 
 
  
