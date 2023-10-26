@@ -37,6 +37,26 @@ Using TimeInversion Augmentation was a failure, the audio became impossible to l
 
  #### Why failed?
  My hypothesis is that using Guassian noise augmentation with the "other" dataset was an overkill. Also, SGD optimizer might be less efficient than Adam in this case, but I wanted to try the CyclirLR scheduler with triangular2 mode and it is compatible only with SGD.
+ 
+### Beam search without LM
+
+You can see the code of my beamsearch without using Language model in the /text_encoder/ctc_char_text_encoder.py file, yet I wouldn't say that custom beam search actually did something valuable here, CER and WER metrics went up with beam search results [example below]
+
+#### Beam Search results example on the model we got from the first experiment
+
+cer_val: 0.16,
+wer_val: 0.46,
+cer_val_beamsearch: 0.17,
+wer_val_beamsearch: 0.47 [weird]
+
+
+ ### Fourth try
+
+ Here we have some hyperparameters games, didn't change much though - only changed the number of epochs + removed the guassian noise augmentation + we are still training on clean + other train, but now in one epoch we have 1000 steps [might be an overkill] + running val on test-other to see how good of a score we can get. Since the training data is large, i removed the number of GRU layers and got left with only 19M params - this might result in insufficient quality.
+
+ #### Metrics
+
+ #### 
 
 
  
