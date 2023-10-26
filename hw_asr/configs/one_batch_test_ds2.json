@@ -1,5 +1,5 @@
 {
-  "name": "default_config",
+  "name": "train_ds2_other",
   "n_gpu": 1,
   "preprocessing": {
     "sr": 16000,
@@ -11,11 +11,13 @@
     "log_spec": true
   },
   "augmentations": {
-    "wave": [],
+    "wave": [
+      {"type": "AddBackgroundNoise", "args": {"p": 1}}
+  ],
     "spectrogram": []
   },
   "arch": {
-    "type": "BaselineModel",
+    "type": "DeepSpeech2",
     "args": {
       "n_feats": 128,
       "fc_hidden": 512
@@ -23,26 +25,9 @@
   },
   "data": {
     "train": {
-      "batch_size": 50,
+      "batch_size": 32,
       "num_workers": 5,
       "datasets": [
-        {
-          "type": "LibrispeechDataset",
-          "args": {
-            "part": "train-clean-100",
-            "max_audio_length": 20.0,
-            "max_text_length": 200
-          },
-          "module": "hw_asr.models"
-        },
-        {
-          "type": "LibrispeechDataset",
-          "args": {
-            "part": "train-clean-360",
-            "max_audio_length": 20.0,
-            "max_text_length": 200
-          }
-        },
         {
           "type": "LibrispeechDataset",
           "args": {
@@ -64,41 +49,17 @@
           }
         }
       ]
-    },
-    "test-other": {
-      "batch_size": 30,
-      "num_workers": 5,
-      "datasets": [
-        {
-          "type": "LibrispeechDataset",
-          "args": {
-            "part": "test-other"
-          }
-        }
-      ]
-    },
-    "test-clean": {
-      "batch_size": 30,
-      "num_workers": 5,
-      "datasets": [
-        {
-          "type": "LibrispeechDataset",
-          "args": {
-            "part": "test-clean"
-          }
-        }
-      ]
     }
   },
   "optimizer": {
-    "type": "Adam",
-    "args": {
-      "lr": 3e-4
-    }
-  },
+      "type": "SGD",
+      "args": {
+        "lr": 1e-2
+      }
+    },
   "loss": {
     "type": "CTCLoss",
-    "args": {}
+    "args": {"zero_infinity": true}
   },
   "metrics": [
     {
@@ -120,7 +81,7 @@
       "steps_per_epoch": 100,
       "epochs": 50,
       "anneal_strategy": "cos",
-      "max_lr": 3e-4,
+      "max_lr": 1e-2,
       "pct_start": 0.2
     }
   },

@@ -5,12 +5,14 @@ from pathlib import Path
 
 import torch
 from tqdm import tqdm
+import numpy as np
 
 import hw_asr.model as module_model
 from hw_asr.trainer import Trainer
 from hw_asr.utils import ROOT_PATH
 from hw_asr.utils.object_loading import get_dataloaders
 from hw_asr.utils.parse_config import ConfigParser
+from hw_asr.metric.utils import calc_cer, calc_wer
 
 DEFAULT_CHECKPOINT_PATH = ROOT_PATH / "default_test_model" / "checkpoint.pth"
 
@@ -43,6 +45,10 @@ def main(config, out_file):
     model.eval()
 
     results = []
+    metrics_cer = []
+    metrics_wer = []
+    metrics_bs_cer = []
+    metrics_bs_wer = []
 
     with torch.no_grad():
         for batch_num, batch in enumerate(tqdm(dataloaders["test"])):
@@ -61,15 +67,37 @@ def main(config, out_file):
             for i in range(len(batch["text"])):
                 argmax = batch["argmax"][i]
                 argmax = argmax[: int(batch["log_probs_length"][i])]
+                # beam_search_text = text_encoder.ctc_beam_search(
+                #             batch["probs"][i], batch["log_probs_length"][i], beam_size=100
+                #         )[:10]
+                wer_i = calc_wer(batch["text"][i], text_encoder.ctc_decode(argmax.cpu().numpy()))
+                cer_i = calc_cer(batch["text"][i], text_encoder.ctc_decode(argmax.cpu().numpy()))
+                # wer_bs = calc_wer(batch["text"][i], beam_search_text[0].text)
+                # cer_bs = calc_cer(batch["text"][i], beam_search_text[0].text)
+                metrics_cer.append(cer_i)
+                metrics_wer.append(wer_i)
+                # metrics_bs_cer.append(cer_bs)
+                # metrics_bs_wer.append(wer_bs)
+
                 results.append(
                     {
                         "ground_trurh": batch["text"][i],
                         "pred_text_argmax": text_encoder.ctc_decode(argmax.cpu().numpy()),
-                        "pred_text_beam_search": text_encoder.ctc_beam_search(
-                            batch["probs"][i], batch["log_probs_length"][i], beam_size=100
-                        )[:10],
+                        # "pred_text_beam_search": beam_search_text[0].text
                     }
                 )
+    results.append(
+        {
+            "cer_val": np.mean(metrics_cer),
+            "wer_val": np.mean(metrics_wer),
+            # "cer_val_bs": np.mean(metrics_bs_cer),
+            # "wer_val_bs": np.mean(metrics_bs_wer)
+        }
+    )
+    print(f"cer_val: {np.mean(metrics_cer)}, wer_val: {np.mean(metrics_wer)}") 
+    # cer beamsearch: {np.mean(metrics_bs_cer)}, wer beamsearch: {np.mean(metrics_bs_wer)}")
+
+
     with Path(out_file).open("w") as f:
         json.dump(results, f, indent=2)
 

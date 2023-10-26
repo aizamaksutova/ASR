@@ -33,11 +33,13 @@ def main(config):
     dataloaders = get_dataloaders(config, text_encoder)
 
     # build model architecture, then print to console
+    
     model = config.init_obj(config["arch"], module_arch, n_class=len(text_encoder))
     logger.info(model)
 
-    # prepare for (multi-device) GPU training
+    # logger.info("Loading checkpoint: {} ...".format(config.resume))
     device, device_ids = prepare_device(config["n_gpu"])
+    # prepare for (multi-device) GPU training
     model = model.to(device)
     if len(device_ids) > 1:
         model = torch.nn.DataParallel(model, device_ids=device_ids)
