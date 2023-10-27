@@ -216,3 +216,9 @@ Config for [train](https://github.com/aizamaksutova/DL_Audio/blob/main/configs/f
 For LM I tried different hyperparameters for alpha and beta, but the best ones were alpha = 0.5 and beta = 0.1, yet i tried different betas from 1e-3 to 0.1
 
 
+# Wandb reports with all the necessary data
+#### for the best run
+[Here](https://wandb.ai/aamaksutova/asr_project/reports/Best-model-report--Vmlldzo1ODAwMjA1?accessToken=57lxhs8y0bv0x8v931lhjojd75yh9e601ots16d4jdra324x4740n8w269o1cyjl)
+
+#### for all the good runs
+[Here](https://wandb.ai/aamaksutova/asr_project/reports/Report-for-all-the-runs--Vmlldzo1ODAwNTk2?accessToken=lpmas2p2a1a25ne4ndzl97473at90pgkzs0jq187kmt7xl1yp4bgfce2wgtfbbv7)
