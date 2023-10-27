@@ -1,6 +1,71 @@
 # ASR Project
 ASR Project within a course 'Deep Learning in Audio'
 
+# How to recreate the experiment
+
+## Crucial information
+
+In [ctc_char_encoder.py](https://github.com/aizamaksutova/DL_Audio/blob/branch1/hw_asr/text_encoder/ctc_char_text_encoder.py) I added the beam search with and without LM.
+
+### What do we need for LM?
+```
+pip install https://github.com/kpu/kenlm/archive/master.zip
+wget https://www.openslr.org/resources/11/3-gram.arpa.gz --no-check-certificate
+gzip -d 3-gram.arpa.gz
+```
+### How do I download the model?
+```
+wget https://drive.google.com/file/d/1FfcDs004kl3bo8prP-TmvpES9igAayBl/view?usp=sharing
+```
+
+### How do I run test?
+
+For test-clean:
+
+```
+python3 test.py \
+   --config hw_asr/configs/test_clean.json \
+   --resume model_best.pth \
+   --batch-size 64 \
+   --jobs 4 \
+   --beam-size 100 \
+   --output output_clean.json
+```
+
+For test-other:
+
+```
+python3 test.py \
+   --config hw_asr/configs/test_other.json \
+   --resume model_best.pth \
+   --batch-size 64 \
+   --jobs 4 \
+   --beam-size 100 \
+   --output output_other.json
+```
+
+### How do I train the model?
+
+Dependent on which model you want, but I trained the best model using this command
+```
+python3 train.py -c hw_asr/configs/train_together.json
+```
+
+### How do I evaluate on test data?
+```
+python3 test.py \
+   -c hw_asr/configs/test_other.json \
+   -r model_best.pth \
+   -t test_data \
+   -o test_result.json \
+   -b 5
+```
+
+# Device
+
+GPU: Tesla P100-PCIE
+
+
 # Model choice 
 
 For my implementation of ASR, I chose the model from paper [Deep Speech 2: End-to-End Speech Recognition in English and Mandarin](https://arxiv.org/pdf/1512.02595.pdf).
