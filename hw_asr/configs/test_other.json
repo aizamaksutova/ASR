@@ -13,10 +13,10 @@
   "text_encoder": {
     "type": "CTCCharTextEncoder",
     "args": {
-      "lm_path": "hw_asr/3-gram.arpa",
+      "lm_path": "3-gram.arpa",
       "alpha": 0.5,
-      "beta": 1e-4,
-      "unigrams_list": "hw_asr/llibrispeech-vocab.txt"
+      "beta": 0.1,
+      "unigrams_list": "llibrispeech-vocab.txt"
     }    
   },
   "augmentations": {
