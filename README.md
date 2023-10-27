@@ -213,8 +213,6 @@ Config for [train](https://github.com/aizamaksutova/DL_Audio/blob/main/configs/f
 
 #### encoder
 
-In 
-
-#### Commands for the experiment
+For LM I tried different hyperparameters for alpha and beta, but the best ones were alpha = 0.5 and beta = 0.1, yet i tried different betas from 1e-3 to 0.1
 
 
