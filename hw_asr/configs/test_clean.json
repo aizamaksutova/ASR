@@ -10,12 +10,21 @@
       },
       "log_spec": true
     },
+    "text_encoder": {
+      "type": "CTCCharTextEncoder",
+      "args": {
+        "lm_path": "3-gram.arpa",
+        "alpha": 0.5,
+        "beta": 0.1,
+        "unigrams_list": "hw_asr/llibrispeech-vocab.txt"
+      }    
+    },
     "augmentations": {
       "wave": [],
       "spectrogram": []
     },
     "arch": {
-      "type": "DeepSpeech_model",
+      "type": "DeepSpeech_big",
       "args": {
         "n_feats": 128,
         "fc_hidden": 512
