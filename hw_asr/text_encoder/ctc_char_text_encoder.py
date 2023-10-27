@@ -1,6 +1,7 @@
 from typing import List, NamedTuple
 from collections import defaultdict
 from pyctcdecode import build_ctcdecoder
+import numpy as np
 
 import torch
 
@@ -15,18 +16,24 @@ class Hypothesis(NamedTuple):
 class CTCCharTextEncoder(CharTextEncoder):
     EMPTY_TOK = "^"
 
-    def __init__(self, alphabet: List[str] = None):
+    def __init__(self, lm_path, alpha, beta, unigrams_list, alphabet: List[str] = None):
         super().__init__(alphabet)
         vocab = [self.EMPTY_TOK] + list(self.alphabet)
         self.ind2char = dict(enumerate(vocab))
         self.char2ind = {v: k for k, v in self.ind2char.items()}
-        # self.kenlm_model = kenlm.Model('lowercase_3-gram.pruned.1e-7.arpa')
+        self.hotwords = ['irresolution', 'roughly', 'george', 'tenability', 'completely', 'nottingham', 'northerners', 'vanderpool',
+        'amazement', 'misdemeanor', 'hypocrite', 'simplified', 'amusement', 'sandford', 'dedalus', 'creatures', 'animosity']
+        self.hotwords = [word.upper() for word in self.hotwords]
+        labels = ['']
+        labels += list("".join(self.alphabet).upper())
         
-        # self.decoder = build_ctcdecoder(
-        #     asr_model.decoder.vocabulary,
-        #     kenlm_model,
-        #     unigram_list,
-        # )
+        self.decoder = build_ctcdecoder(
+            labels=labels,
+            kenlm_model_path=lm_path,
+            alpha=alpha,
+            beta=beta,
+            unigrams=unigrams_list
+        )
 
     def ctc_decode(self, inds: List[int]) -> str:
         last_tok = 0
@@ -79,15 +86,26 @@ class CTCCharTextEncoder(CharTextEncoder):
         return sorted(hypos, key=lambda x: x.prob, reverse=True)
     
 
-    # def ctc_beam_search_withlm(self, probs, probs_length, beam_size):
-    #      """
-    #     Performs beam search with LM and returns a list of pairs (hypothesis, hypothesis probability).
-    #     """
-    #     assert len(probs.shape) == 2
-    #     char_length, voc_size = probs.shape
-    #     assert voc_size == len(self.ind2char)
-    #     hypos: List[Hypothesis] = []
-    #     state = {('', self.EMPTY_TOK): 1.0}
+    def ctc_beam_search_withlm(self, probs, probs_length, beam_size):
+        """
+        Performs beam search with LM and returns a list of pairs (hypothesis, hypothesis probability).
+        """
+        assert len(probs.shape) == 2
+        char_length, voc_size = probs.shape
+        assert voc_size == len(self.ind2char)
+        hypos: List[Hypothesis] = []
+        lm_text = self.decoder.decode(
+            probs[:probs_length, :].numpy(), 
+            beam_size,
+            hotwords=self.hotwords,
+            hotword_weight=10.0)
+
+        lm_text = lm_text.lower()
+
+        hypos.append(Hypothesis(lm_text, probs[:probs_length, :].numpy()))
+        
+        return sorted(hypos, key=lambda x: x.prob, reverse=True)
+
 
     
 
