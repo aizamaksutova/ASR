@@ -98,8 +98,8 @@ On test-other:
 
 | Beamsearch with LM  | WER |  CER  |
 | ------------- | ------------- | ------------- | 
-| NO  | 0.45  |    0.16 | 
-| YES  | 0.46  |   0.16 |
+| NO  | 0.45  |    0.19 | 
+| YES  | 0.46  |   0.19 |
 
 
 
@@ -111,6 +111,44 @@ For beam search with LM i used the 3-gram.arpa LM from LibriSpeech models, imple
 #### Hyperparameters 
 In the prior experiment[№4] I implemented Beam Search with LM with hyperparameters alpha = 0.5 and beta = 0.1, maybe this needs some changes so I will experiment with these in the fifth, final experiment.
 
+# Best model
+
+#### Download the model
+
+You can download the model's weights [here](https://drive.google.com/file/d/1FfcDs004kl3bo8prP-TmvpES9igAayBl/view?usp=sharing)
+
+#### Architecture 
+
+2 Convolutional layers + 5 GRU layers. In the paper [Deep Speech 2: End-to-End Speech Recognition in English and Mandarin](https://arxiv.org/pdf/1512.02595.pdf) authors said that there is no radical gain in 3 convolutional layers and 7 GRU layers, and one can stop on 2 conv layers + 4 gru layers, but I decided to add one more just in case(it didn't slow down the training process too much). 
+
+#### Augmentations
+For waves I used Shift, Gain, Guassian Noise[links to their docs are given above] and for spectrograms I used TimeMasking and FreqMasking. Since the dataset i was training on was clean + other, I decided that the probablitity of adding Guassian Noise should not be 1 as in other experiments, because it can make the data too inaudible. You can listen to the audio + look at spectrograms after augmentations [here](https://wandb.ai/aamaksutova/asr_project/reports/Best-model-report--Vmlldzo1ODAwMjA1?accessToken=57lxhs8y0bv0x8v931lhjojd75yh9e601ots16d4jdra324x4740n8w269o1cyjl).
+
+#### Metrics
 
 
- 
+On test-clean:
+
+| Beamsearch with LM  | WER |  CER  |
+| ------------- | ------------- | ------------- | 
+| NO  | 0.22  |    0.069 | 
+| YES  | 0.1996  |   0.074 |
+
+
+On test-other:
+
+| Beamsearch with LM  | WER |  CER  |
+| ------------- | ------------- | ------------- | 
+| NO  | 0.43  |    0.17 | 
+| YES  | 0.42  |   0.198 |
+
+#### logs
+
+Config for [train](https://github.com/aizamaksutova/DL_Audio/blob/main/configs/final_exp.json), for [test-clean](https://github.com/aizamaksutova/DL_Audio/blob/main/configs/test-clean.json) and [test-other](https://github.com/aizamaksutova/DL_Audio/blob/main/configs/test-other.json). Training logs are [here](https://github.com/aizamaksutova/DL_Audio/blob/main/training_logs/final_train.log)
+
+#### encoder
+
+In 
+
+#### Commands for the experiment
+
